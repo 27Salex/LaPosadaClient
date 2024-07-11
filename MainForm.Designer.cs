@@ -61,6 +61,13 @@
             this.Imagen = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.PageControl = new DevExpress.XtraTab.XtraTabControl();
+            this.pageCarrito = new DevExpress.XtraTab.XtraTabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPedir = new DevExpress.XtraEditors.SimpleButton();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gridCart = new DevExpress.XtraGrid.GridControl();
+            this.viewCart = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pageProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewProductos)).BeginInit();
@@ -71,6 +78,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PageControl)).BeginInit();
             this.PageControl.SuspendLayout();
+            this.pageCarrito.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewCart)).BeginInit();
             this.SuspendLayout();
             // 
             // ColNombre
@@ -140,6 +151,7 @@
             this.btnCart2.Size = new System.Drawing.Size(72, 70);
             this.btnCart2.TabIndex = 6;
             this.btnCart2.Text = "0";
+            this.btnCart2.Click += new System.EventHandler(this.btnCart_Click);
             // 
             // btnBack
             // 
@@ -150,16 +162,16 @@
             this.btnBack.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.btnBack.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnBack.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBack.ImageOptions.SvgImage")));
-            this.btnBack.ImageOptions.SvgImageSize = new System.Drawing.Size(32, 32);
-            this.btnBack.Location = new System.Drawing.Point(3, 3);
+            this.btnBack.ImageOptions.SvgImageSize = new System.Drawing.Size(48, 48);
+            this.btnBack.Location = new System.Drawing.Point(3, 6);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(40, 38);
+            this.btnBack.Size = new System.Drawing.Size(56, 54);
             this.btnBack.TabIndex = 2;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // gridProductos
             // 
-            this.gridProductos.BackgroundImage = global::LaPosadaClient.Properties.Resources.woodBG;
+            this.gridProductos.BackgroundImage = global::LaPosadaClient.Properties.Resources.rsz_woodbg;
             this.gridProductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gridProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridProductos.EmbeddedNavigator.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -199,8 +211,8 @@
             this.viewProductos.OptionsTiles.Padding = new System.Windows.Forms.Padding(5);
             this.viewProductos.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
             this.viewProductos.TileColumns.Add(tableColumnDefinition1);
-            tableRowDefinition1.Length.Value = 151D;
-            tableRowDefinition2.Length.Value = 95D;
+            tableRowDefinition1.Length.Value = 172D;
+            tableRowDefinition2.Length.Value = 74D;
             tableRowDefinition3.Length.Value = 44D;
             this.viewProductos.TileRows.Add(tableRowDefinition1);
             this.viewProductos.TileRows.Add(tableRowDefinition2);
@@ -292,7 +304,7 @@
             // 
             // gridCategorias
             // 
-            this.gridCategorias.BackgroundImage = global::LaPosadaClient.Properties.Resources.woodBG;
+            this.gridCategorias.BackgroundImage = global::LaPosadaClient.Properties.Resources.rsz_woodbg;
             this.gridCategorias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gridCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridCategorias.EmbeddedNavigator.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -388,10 +400,99 @@
             this.PageControl.TabIndex = 1;
             this.PageControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageCategorias,
-            this.pageProductos});
+            this.pageProductos,
+            this.pageCarrito});
             this.PageControl.Transition.AllowTransition = DevExpress.Utils.DefaultBoolean.True;
             this.PageControl.Transition.EasingMode = DevExpress.Data.Utils.EasingMode.EaseInOut;
             this.PageControl.Transition.TransitionType = pushTransition1;
+            // 
+            // pageCarrito
+            // 
+            this.pageCarrito.Controls.Add(this.panel1);
+            this.pageCarrito.Name = "pageCarrito";
+            this.pageCarrito.Size = new System.Drawing.Size(798, 419);
+            this.pageCarrito.Text = "Carrito";
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::LaPosadaClient.Properties.Resources.rsz_woodbg;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btnPedir);
+            this.panel1.Controls.Add(this.lblPrecio);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.gridCart);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(798, 419);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnPedir
+            // 
+            this.btnPedir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPedir.Appearance.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedir.Appearance.Options.UseFont = true;
+            this.btnPedir.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.btnPedir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPedir.ImageOptions.Image")));
+            this.btnPedir.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+            this.btnPedir.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnPedir.Location = new System.Drawing.Point(463, 185);
+            this.btnPedir.Name = "btnPedir";
+            this.btnPedir.Size = new System.Drawing.Size(279, 87);
+            this.btnPedir.TabIndex = 6;
+            this.btnPedir.Text = "Pedir ya!";
+            this.btnPedir.Click += new System.EventHandler(this.btnPedir_Click);
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrecio.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(643, 130);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(61, 44);
+            this.lblPrecio.TabIndex = 2;
+            this.lblPrecio.Text = "0€";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(457, 138);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(189, 34);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Precio Total:";
+            // 
+            // gridCart
+            // 
+            this.gridCart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridCart.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.gridCart.EmbeddedNavigator.Appearance.Options.UseFont = true;
+            this.gridCart.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridCart.Location = new System.Drawing.Point(37, 30);
+            this.gridCart.MainView = this.viewCart;
+            this.gridCart.Name = "gridCart";
+            this.gridCart.Size = new System.Drawing.Size(400, 258);
+            this.gridCart.TabIndex = 0;
+            this.gridCart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.viewCart});
+            // 
+            // viewCart
+            // 
+            this.viewCart.Appearance.FocusedRow.Font = new System.Drawing.Font("Arial", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewCart.Appearance.FocusedRow.Options.UseFont = true;
+            this.viewCart.Appearance.Row.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewCart.Appearance.Row.Options.UseFont = true;
+            this.viewCart.GridControl = this.gridCart;
+            this.viewCart.Name = "viewCart";
+            this.viewCart.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.viewCart.OptionsView.ShowGroupPanel = false;
             // 
             // MainForm
             // 
@@ -402,10 +503,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.PageControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.ShowIcon = false;
             this.Text = "FormCategorias";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -421,6 +522,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PageControl)).EndInit();
             this.PageControl.ResumeLayout(false);
+            this.pageCarrito.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewCart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,5 +550,12 @@
         private DevExpress.XtraTab.XtraTabControl PageControl;
         private DevExpress.XtraEditors.SimpleButton btnCart1;
         private DevExpress.XtraEditors.SimpleButton btnCart2;
+        private DevExpress.XtraTab.XtraTabPage pageCarrito;
+        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraGrid.GridControl gridCart;
+        private DevExpress.XtraGrid.Views.Grid.GridView viewCart;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPrecio;
+        private DevExpress.XtraEditors.SimpleButton btnPedir;
     }
 }

@@ -18,7 +18,6 @@ namespace LaPosadaClient
         public MainForm()
         {
             InitializeComponent();
-            this.Controls.Add(ShopHelper.Cart);
         }
 
         private void settingsBtn_Click(object sender, EventArgs e)
@@ -59,11 +58,6 @@ namespace LaPosadaClient
             PageControl.SelectedTabPage = pageProductos;
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            PageControl.SelectedTabPage = pageProductos;
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             PageControl.SelectedTabPage = pageCategorias;
@@ -73,7 +67,13 @@ namespace LaPosadaClient
         {
             var producto = (Producto)viewProductos.GetRow(e.Item.RowHandle);
 
-            ShopHelper.Cart.Add(new Consumicion { RidProducto = producto.IdProducto, Cantidad = 1});
+            var consum = new Consumicion {RidProducto = producto.IdProducto};
+
+            consum.Cantidad = AmountSelectorForm.ShowAmountForm();
+
+            if (consum.Cantidad == -1) return;
+
+            ShopHelper.Cart.Add(consum);
             SetCartAmount(ShopHelper.Cart.ItemCount);
         }
 
@@ -85,7 +85,15 @@ namespace LaPosadaClient
 
         private void btnCart_Click(object sender, EventArgs e)
         {
-            ShopHelper.Cart.ShowPopup();
+            gridCart.DataSource = ShopHelper.Cart.GetItems();
+            PageControl.SelectedTabPage = pageCarrito;
+            lblPrecio.Text = ShopHelper.Cart.PrecioTotal + "€";
+        }
+
+        private void btnPedir_Click(object sender, EventArgs e)
+        {
+            ShopHelper.Cart.CheckOut();
+            ShopHelper.Cart.Clear();
         }
     }
 }

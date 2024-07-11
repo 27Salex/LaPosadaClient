@@ -34,7 +34,7 @@ namespace LaPosadaClient
             }
         }
 
-        public static ShoppingCart cart;
+        private static ShoppingCart cart;
 
         public static ShoppingCart Cart
         {
@@ -45,6 +45,8 @@ namespace LaPosadaClient
                 return cart;
             }
         }
+
+        
 
     }
 }

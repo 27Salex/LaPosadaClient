@@ -1,4 +1,5 @@
 ﻿using LaPosadaDAL.Models;
+using LaPosadaDAL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,19 @@ namespace LaPosadaClient
     public class ShoppingCart
     {
         public List<Consumicion> Consumiciones;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridProductos;
-        private DevExpress.XtraEditors.SimpleButton btnCheckOut;
 
-        public int ItemCount => Consumiciones.Count;
+        public int ItemCount
+        {
+            get
+            {
+                int count = 0;
+
+                foreach (var item in Consumiciones)
+                    count += item.Cantidad;
+
+                return count;
+            }
+        }
 
         public decimal PrecioTotal
         {
@@ -28,6 +37,19 @@ namespace LaPosadaClient
             
         }
         public Pedido Pedido;
+
+        public decimal TotalPrice
+        {
+            get
+            {
+                decimal total = 0;
+
+                foreach (var item in Consumiciones)
+                    total += item.PrecioTotal;
+
+                return total;
+            }
+        }
 
         public ShoppingCart()
         {
@@ -54,10 +76,26 @@ namespace LaPosadaClient
 
         public void AddRange(List<Consumicion> consumiciones) => consumiciones.ForEach(c => Add(c));
 
+        public List<ShopItem> GetItems()
+        {
+            var items = new List<ShopItem>();
+            foreach (var con in Consumiciones)
+            {
+                var shopItem = new ShopItem();
+                shopItem.Producto = con.Producto.Nombre;
+                shopItem.Cantidad = con.Cantidad;
+                shopItem.Precio = con.PrecioTotal;
+
+                items.Add(shopItem);
+            }
+            return items;
+        }
+
         public bool CheckOut()
         {
             try
             {
+                Pedido.RidTurno = new TurnoDAL().GetAll($"WHERE Fecha == '{DateTime.Today}'", true)[0].IdTurno;
                 Pedido.Fecha = DateTime.Now;
                 Pedido.Save();
                 Consumiciones.ForEach(c => c.Save());
@@ -69,4 +107,11 @@ namespace LaPosadaClient
             }
         }
     }
+    public class ShopItem 
+    { 
+        public string Producto { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Precio { get; set; }
+    }
+
 }
