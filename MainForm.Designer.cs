@@ -30,22 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition6 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition7 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition8 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition5 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
-            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
+            DevExpress.Utils.Animation.PushTransition pushTransition2 = new DevExpress.Utils.Animation.PushTransition();
             this.ColNombre = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.ColPrecio = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.Nombre = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.Imagen = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.alertBox = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.pageProductos = new DevExpress.XtraTab.XtraTabPage();
             this.btnCart2 = new DevExpress.XtraEditors.SimpleButton();
@@ -58,16 +59,21 @@
             this.settingsBtn = new DevExpress.XtraEditors.SimpleButton();
             this.gridCategorias = new DevExpress.XtraGrid.GridControl();
             this.viewCategorias = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.Imagen = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.PageControl = new DevExpress.XtraTab.XtraTabControl();
+            this.pageControl = new DevExpress.XtraTab.XtraTabControl();
             this.pageCarrito = new DevExpress.XtraTab.XtraTabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClearCart = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnPedir = new DevExpress.XtraEditors.SimpleButton();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gridCart = new DevExpress.XtraGrid.GridControl();
             this.viewCart = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.pageMain = new DevExpress.XtraTab.XtraTabPage();
+            this.startPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.afkTimer = new System.Windows.Forms.Timer(this.components);
             this.pageProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewProductos)).BeginInit();
@@ -76,12 +82,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PageControl)).BeginInit();
-            this.PageControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pageControl)).BeginInit();
+            this.pageControl.SuspendLayout();
             this.pageCarrito.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewCart)).BeginInit();
+            this.pageMain.SuspendLayout();
+            this.startPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ColNombre
@@ -109,6 +117,15 @@
             this.Nombre.OptionsColumn.AllowEdit = false;
             this.Nombre.Visible = true;
             this.Nombre.VisibleIndex = 0;
+            // 
+            // Imagen
+            // 
+            this.Imagen.Caption = "Imagen";
+            this.Imagen.FieldName = "Imagen";
+            this.Imagen.Name = "Imagen";
+            this.Imagen.UnboundDataType = typeof(byte);
+            this.Imagen.Visible = true;
+            this.Imagen.VisibleIndex = 1;
             // 
             // alertBox
             // 
@@ -210,41 +227,43 @@
             this.viewProductos.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.viewProductos.OptionsTiles.Padding = new System.Windows.Forms.Padding(5);
             this.viewProductos.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.viewProductos.TileColumns.Add(tableColumnDefinition1);
-            tableRowDefinition1.Length.Value = 172D;
-            tableRowDefinition2.Length.Value = 74D;
-            tableRowDefinition3.Length.Value = 44D;
-            this.viewProductos.TileRows.Add(tableRowDefinition1);
-            this.viewProductos.TileRows.Add(tableRowDefinition2);
-            this.viewProductos.TileRows.Add(tableRowDefinition3);
-            tileViewItemElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement1.ImageOptions.ImageBorder = DevExpress.XtraEditors.TileItemElementImageBorderMode.None;
-            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileViewItemElement1.ImageOptions.ImageSize = new System.Drawing.Size(150, 150);
-            tileViewItemElement1.Text = "categoryImage";
-            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement1.TextVisible = false;
-            tileViewItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement2.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement2.Column = this.ColNombre;
-            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement2.RowIndex = 1;
-            tileViewItemElement2.Text = "ColNombre";
-            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement3.Appearance.Normal.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            tileViewItemElement3.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement3.Column = this.ColPrecio;
-            tileViewItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement3.RowIndex = 2;
-            tileViewItemElement3.Text = "ColPrecio";
-            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.viewProductos.TileTemplate.Add(tileViewItemElement1);
-            this.viewProductos.TileTemplate.Add(tileViewItemElement2);
-            this.viewProductos.TileTemplate.Add(tileViewItemElement3);
+            this.viewProductos.TileColumns.Add(tableColumnDefinition3);
+            tableRowDefinition6.Length.Value = 172D;
+            tableRowDefinition7.Length.Value = 74D;
+            tableRowDefinition8.Length.Value = 44D;
+            this.viewProductos.TileRows.Add(tableRowDefinition6);
+            this.viewProductos.TileRows.Add(tableRowDefinition7);
+            this.viewProductos.TileRows.Add(tableRowDefinition8);
+            tileViewItemElement6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            tileViewItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement6.ImageOptions.ImageBorder = DevExpress.XtraEditors.TileItemElementImageBorderMode.None;
+            tileViewItemElement6.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileViewItemElement6.ImageOptions.ImageSize = new System.Drawing.Size(150, 150);
+            tileViewItemElement6.Name = "Imagen";
+            tileViewItemElement6.Text = "categoryImage";
+            tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement6.TextVisible = false;
+            tileViewItemElement7.Appearance.Normal.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement7.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement7.Column = this.ColNombre;
+            tileViewItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement7.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement7.RowIndex = 1;
+            tileViewItemElement7.Text = "ColNombre";
+            tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            tileViewItemElement8.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement8.Column = this.ColPrecio;
+            tileViewItemElement8.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement8.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement8.RowIndex = 2;
+            tileViewItemElement8.Text = "ColPrecio";
+            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.viewProductos.TileTemplate.Add(tileViewItemElement6);
+            this.viewProductos.TileTemplate.Add(tileViewItemElement7);
+            this.viewProductos.TileTemplate.Add(tileViewItemElement8);
             this.viewProductos.ItemClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.viewProductos_ItemClick);
+            this.viewProductos.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.viewProductos_ItemCustomize);
             // 
             // gridView1
             // 
@@ -343,68 +362,63 @@
             this.viewCategorias.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.viewCategorias.OptionsTiles.Padding = new System.Windows.Forms.Padding(5);
             this.viewCategorias.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.viewCategorias.TileColumns.Add(tableColumnDefinition2);
-            tableRowDefinition4.Length.Value = 210D;
-            tableRowDefinition5.Length.Value = 80D;
-            this.viewCategorias.TileRows.Add(tableRowDefinition4);
-            this.viewCategorias.TileRows.Add(tableRowDefinition5);
-            tileViewItemElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            tileViewItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement4.ImageOptions.ImageBorder = DevExpress.XtraEditors.TileItemElementImageBorderMode.None;
-            tileViewItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileViewItemElement4.ImageOptions.ImageSize = new System.Drawing.Size(150, 150);
-            tileViewItemElement4.Text = "categoryImage";
-            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement4.TextVisible = false;
-            tileViewItemElement5.Appearance.Hovered.Options.UseTextOptions = true;
-            tileViewItemElement5.Appearance.Hovered.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
-            tileViewItemElement5.Appearance.Hovered.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            tileViewItemElement5.Appearance.Normal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileViewItemElement5.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement5.Appearance.Normal.Options.UseTextOptions = true;
-            tileViewItemElement5.Appearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            tileViewItemElement5.Column = this.Nombre;
-            tileViewItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileViewItemElement5.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
-            tileViewItemElement5.RowIndex = 1;
-            tileViewItemElement5.Text = "Nombre";
-            tileViewItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.viewCategorias.TileTemplate.Add(tileViewItemElement4);
-            this.viewCategorias.TileTemplate.Add(tileViewItemElement5);
+            this.viewCategorias.TileColumns.Add(tableColumnDefinition1);
+            tableRowDefinition1.Length.Value = 210D;
+            tableRowDefinition2.Length.Value = 80D;
+            this.viewCategorias.TileRows.Add(tableRowDefinition1);
+            this.viewCategorias.TileRows.Add(tableRowDefinition2);
+            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement1.ImageOptions.ImageBorder = DevExpress.XtraEditors.TileItemElementImageBorderMode.None;
+            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileViewItemElement1.ImageOptions.ImageSize = new System.Drawing.Size(150, 150);
+            tileViewItemElement1.Name = "Imagen";
+            tileViewItemElement1.Text = "Imagen";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement1.TextVisible = false;
+            tileViewItemElement2.Appearance.Hovered.Options.UseTextOptions = true;
+            tileViewItemElement2.Appearance.Hovered.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
+            tileViewItemElement2.Appearance.Hovered.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            tileViewItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileViewItemElement2.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement2.Appearance.Normal.Options.UseTextOptions = true;
+            tileViewItemElement2.Appearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            tileViewItemElement2.Column = this.Nombre;
+            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement2.RowIndex = 1;
+            tileViewItemElement2.Text = "Nombre";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.viewCategorias.TileTemplate.Add(tileViewItemElement1);
+            this.viewCategorias.TileTemplate.Add(tileViewItemElement2);
             this.viewCategorias.ItemClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.viewCategorias_ItemClick);
-            // 
-            // Imagen
-            // 
-            this.Imagen.Caption = "Imagen";
-            this.Imagen.FieldName = "Imagen";
-            this.Imagen.Name = "Imagen";
-            this.Imagen.Visible = true;
-            this.Imagen.VisibleIndex = 1;
+            this.viewCategorias.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.viewCategorias_ItemCustomize);
             // 
             // gridView2
             // 
             this.gridView2.GridControl = this.gridCategorias;
             this.gridView2.Name = "gridView2";
             // 
-            // PageControl
+            // pageControl
             // 
-            this.PageControl.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.PageControl.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.PageControl.Appearance.Options.UseBackColor = true;
-            this.PageControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.PageControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PageControl.Location = new System.Drawing.Point(0, 0);
-            this.PageControl.Name = "PageControl";
-            this.PageControl.SelectedTabPage = this.pageCategorias;
-            this.PageControl.Size = new System.Drawing.Size(800, 450);
-            this.PageControl.TabIndex = 1;
-            this.PageControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.pageControl.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.pageControl.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pageControl.Appearance.Options.UseBackColor = true;
+            this.pageControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pageControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageControl.Location = new System.Drawing.Point(0, 0);
+            this.pageControl.Name = "pageControl";
+            this.pageControl.SelectedTabPage = this.pageCategorias;
+            this.pageControl.Size = new System.Drawing.Size(800, 450);
+            this.pageControl.TabIndex = 1;
+            this.pageControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.pageCategorias,
             this.pageProductos,
-            this.pageCarrito});
-            this.PageControl.Transition.AllowTransition = DevExpress.Utils.DefaultBoolean.True;
-            this.PageControl.Transition.EasingMode = DevExpress.Data.Utils.EasingMode.EaseInOut;
-            this.PageControl.Transition.TransitionType = pushTransition1;
+            this.pageCarrito,
+            this.pageMain});
+            this.pageControl.Transition.AllowTransition = DevExpress.Utils.DefaultBoolean.True;
+            this.pageControl.Transition.EasingMode = DevExpress.Data.Utils.EasingMode.EaseInOut;
+            this.pageControl.Transition.TransitionType = pushTransition2;
+            this.pageControl.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pageCarrito
             // 
@@ -417,6 +431,8 @@
             // 
             this.panel1.BackgroundImage = global::LaPosadaClient.Properties.Resources.rsz_woodbg;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btnClearCart);
+            this.panel1.Controls.Add(this.simpleButton1);
             this.panel1.Controls.Add(this.btnPedir);
             this.panel1.Controls.Add(this.lblPrecio);
             this.panel1.Controls.Add(this.label1);
@@ -427,6 +443,37 @@
             this.panel1.Size = new System.Drawing.Size(798, 419);
             this.panel1.TabIndex = 0;
             // 
+            // btnClearCart
+            // 
+            this.btnClearCart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearCart.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearCart.Appearance.Options.UseFont = true;
+            this.btnClearCart.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.btnClearCart.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClearCart.ImageOptions.Image")));
+            this.btnClearCart.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+            this.btnClearCart.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnClearCart.Location = new System.Drawing.Point(617, 354);
+            this.btnClearCart.Name = "btnClearCart";
+            this.btnClearCart.Size = new System.Drawing.Size(156, 54);
+            this.btnClearCart.TabIndex = 8;
+            this.btnClearCart.Text = "Vaciar carrito";
+            this.btnClearCart.Click += new System.EventHandler(this.btnClearCart_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(5)))), ((int)(((byte)(0)))));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.AutoSize = true;
+            this.simpleButton1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(48, 48);
+            this.simpleButton1.Location = new System.Drawing.Point(4, 4);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(56, 54);
+            this.simpleButton1.TabIndex = 7;
+            // 
             // btnPedir
             // 
             this.btnPedir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -436,9 +483,9 @@
             this.btnPedir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPedir.ImageOptions.Image")));
             this.btnPedir.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
             this.btnPedir.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnPedir.Location = new System.Drawing.Point(463, 185);
+            this.btnPedir.Location = new System.Drawing.Point(473, 82);
             this.btnPedir.Name = "btnPedir";
-            this.btnPedir.Size = new System.Drawing.Size(279, 87);
+            this.btnPedir.Size = new System.Drawing.Size(289, 87);
             this.btnPedir.TabIndex = 6;
             this.btnPedir.Text = "Pedir ya!";
             this.btnPedir.Click += new System.EventHandler(this.btnPedir_Click);
@@ -449,7 +496,7 @@
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.BackColor = System.Drawing.Color.Transparent;
             this.lblPrecio.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(643, 130);
+            this.lblPrecio.Location = new System.Drawing.Point(646, 40);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(61, 44);
             this.lblPrecio.TabIndex = 2;
@@ -461,7 +508,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(457, 138);
+            this.label1.Location = new System.Drawing.Point(467, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(189, 34);
             this.label1.TabIndex = 1;
@@ -475,10 +522,10 @@
             this.gridCart.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Arial", 14.25F);
             this.gridCart.EmbeddedNavigator.Appearance.Options.UseFont = true;
             this.gridCart.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridCart.Location = new System.Drawing.Point(37, 30);
+            this.gridCart.Location = new System.Drawing.Point(85, 41);
             this.gridCart.MainView = this.viewCart;
             this.gridCart.Name = "gridCart";
-            this.gridCart.Size = new System.Drawing.Size(400, 258);
+            this.gridCart.Size = new System.Drawing.Size(342, 258);
             this.gridCart.TabIndex = 0;
             this.gridCart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.viewCart});
@@ -491,8 +538,45 @@
             this.viewCart.Appearance.Row.Options.UseFont = true;
             this.viewCart.GridControl = this.gridCart;
             this.viewCart.Name = "viewCart";
+            this.viewCart.OptionsBehavior.Editable = false;
             this.viewCart.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.viewCart.OptionsView.ShowGroupPanel = false;
+            // 
+            // pageMain
+            // 
+            this.pageMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pageMain.Controls.Add(this.startPanel);
+            this.pageMain.Name = "pageMain";
+            this.pageMain.Size = new System.Drawing.Size(798, 419);
+            this.pageMain.Text = "Inicio";
+            // 
+            // startPanel
+            // 
+            this.startPanel.BackgroundImage = global::LaPosadaClient.Properties.Resources.InicioBG;
+            this.startPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startPanel.Controls.Add(this.label2);
+            this.startPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startPanel.Location = new System.Drawing.Point(0, 0);
+            this.startPanel.Name = "startPanel";
+            this.startPanel.Size = new System.Drawing.Size(798, 419);
+            this.startPanel.TabIndex = 0;
+            this.startPanel.Click += new System.EventHandler(this.startPanel_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(237, 378);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(378, 42);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Toca para comenzar";
+            // 
+            // afkTimer
+            // 
+            this.afkTimer.Interval = 24000;
+            this.afkTimer.Tick += new System.EventHandler(this.afkTimer_Tick);
             // 
             // MainForm
             // 
@@ -501,7 +585,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(5)))), ((int)(((byte)(0)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.PageControl);
+            this.Controls.Add(this.pageControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -520,13 +604,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PageControl)).EndInit();
-            this.PageControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pageControl)).EndInit();
+            this.pageControl.ResumeLayout(false);
             this.pageCarrito.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewCart)).EndInit();
+            this.pageMain.ResumeLayout(false);
+            this.startPanel.ResumeLayout(false);
+            this.startPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -547,7 +634,7 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn Nombre;
         private DevExpress.XtraGrid.Columns.TileViewColumn Imagen;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraTab.XtraTabControl PageControl;
+        private DevExpress.XtraTab.XtraTabControl pageControl;
         private DevExpress.XtraEditors.SimpleButton btnCart1;
         private DevExpress.XtraEditors.SimpleButton btnCart2;
         private DevExpress.XtraTab.XtraTabPage pageCarrito;
@@ -557,5 +644,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPrecio;
         private DevExpress.XtraEditors.SimpleButton btnPedir;
+        private DevExpress.XtraTab.XtraTabPage pageMain;
+        private System.Windows.Forms.Panel startPanel;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.Timer afkTimer;
+        private DevExpress.XtraEditors.SimpleButton btnClearCart;
     }
 }

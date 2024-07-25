@@ -63,6 +63,16 @@ namespace LaPosadaClient.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap InicioBG {
+            get {
+                object obj = ResourceManager.GetObject("InicioBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rsz_woodbg {
             get {
                 object obj = ResourceManager.GetObject("rsz_woodbg", resourceCulture);

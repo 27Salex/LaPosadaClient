@@ -47,8 +47,9 @@
     <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeMap.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeMap.v22.2.UI, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="LaPosadaDAL">
-      <HintPath>..\LaPosadaDAL\bin\Release\LaPosadaDAL.dll</HintPath>
+    <Reference Include="LaPosadaDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Files\LaPosadaDAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -71,7 +72,6 @@
     <Compile Include="AmountSelectorForm.Designer.cs">
       <DependentUpon>AmountSelectorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +117,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rsz_woodbg.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Files\InicioBG.png" />
+    <Content Include="Files\LaPosadaDAL.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

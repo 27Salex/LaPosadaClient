@@ -24,7 +24,7 @@ namespace LaPosadaClient
             set
             {
                 _Product = value;
-                //pictureBox1.Image = Image.FromStream(_Product.Image)
+                pictureBox1.Image = _Product.Icon;
             }
 
         }
@@ -45,9 +45,10 @@ namespace LaPosadaClient
         
         }
 
-        private AmountSelectorForm()
+        private AmountSelectorForm(Producto producto)
         {
             InitializeComponent();
+            Product = producto;
         }
 
         private void AmountSelectorForm_Load(object sender, EventArgs e)
@@ -55,10 +56,9 @@ namespace LaPosadaClient
 
         }
 
-        public static int ShowAmountForm()
+        public static int ShowAmountForm(Producto producto)
         {
-            AmountSelectorForm form = new AmountSelectorForm();
-
+            AmountSelectorForm form = new AmountSelectorForm(producto);
             form.ShowDialog();
 
             return form.Amount;

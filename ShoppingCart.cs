@@ -1,4 +1,5 @@
-﻿using LaPosadaDAL.Models;
+﻿using DevExpress.XtraEditors.FeatureBrowser;
+using LaPosadaDAL.Models;
 using LaPosadaDAL.Services;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace LaPosadaClient
             }
             
         }
-        public Pedido Pedido;
+        public Pedido PedidoActual;
 
         public decimal TotalPrice
         {
@@ -60,7 +61,7 @@ namespace LaPosadaClient
         public void Clear()
         {
             Consumiciones = new List<Consumicion>();
-            Pedido = new Pedido();
+            PedidoActual = new Pedido();
         }
 
         public void Add(Consumicion consumicion)
@@ -70,7 +71,7 @@ namespace LaPosadaClient
             else
             {
                 Consumiciones.Add(consumicion);
-                consumicion.RidPedido = Pedido.IdPedido;
+                consumicion.RidPedido = PedidoActual.IdPedido;
             }
         }
 
@@ -95,14 +96,25 @@ namespace LaPosadaClient
         {
             try
             {
-                Pedido.RidTurno = new TurnoDAL().GetAll($"WHERE Fecha == '{DateTime.Today}'", true)[0].IdTurno;
-                Pedido.Fecha = DateTime.Now;
-                Pedido.Save();
-                Consumiciones.ForEach(c => c.Save());
+                int idTurno = 0;
+                idTurno = new TurnoDAL().GetAll($"WHERE EstaCerrado = 0", true).First().IdTurno;
+                if (idTurno != 0)
+                {
+                    PedidoActual.RidTurno = idTurno;
+                    PedidoActual.Fecha = DateTime.Now;
+                    PedidoActual.RidEstado = 1;
+                    PedidoActual.Save();
+                    foreach (var c in Consumiciones)
+                    {
+                        c.RidPedido = PedidoActual.IdPedido;
+                        c.Save();
+                    }
+                }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                throw e;
                 return false;
             }
         }
