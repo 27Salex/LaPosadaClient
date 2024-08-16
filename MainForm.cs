@@ -156,6 +156,7 @@ namespace LaPosadaClient
 
         private void btnClearCart_Click(object sender, EventArgs e)
         {
+            pageControl.SelectedTabPage = pageMain;
             ShopHelper.Cart.Clear();
             SetCartAmount(0);
         }

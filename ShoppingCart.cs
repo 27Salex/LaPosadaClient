@@ -114,7 +114,6 @@ namespace LaPosadaClient
             }
             catch (Exception e)
             {
-                throw e;
                 return false;
             }
         }
