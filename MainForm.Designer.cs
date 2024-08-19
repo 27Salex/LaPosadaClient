@@ -182,7 +182,7 @@
             this.btnBack.ImageOptions.SvgImageSize = new System.Drawing.Size(48, 48);
             this.btnBack.Location = new System.Drawing.Point(3, 3);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(87, 87);
+            this.btnBack.Size = new System.Drawing.Size(56, 54);
             this.btnBack.TabIndex = 2;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
@@ -471,8 +471,9 @@
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(48, 48);
             this.simpleButton1.Location = new System.Drawing.Point(0, 3);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(87, 87);
+            this.simpleButton1.Size = new System.Drawing.Size(56, 54);
             this.simpleButton1.TabIndex = 7;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btnPedir
             // 

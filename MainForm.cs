@@ -117,17 +117,12 @@ namespace LaPosadaClient
         private void btnPedir_Click(object sender, EventArgs e)
         {
             bool res = ShopHelper.Cart.CheckOut();
+            SetCartAmount(0);
+            pageControl.SelectedTabPage = pageMain;
             if (res)
-            {
-                ShopHelper.Cart.Clear();
-                SetCartAmount(0);
                 alertBox.Show(this, "Pedido realizado con exito!", "Éxito");
-                pageControl.SelectedTabPage = pageMain;
-            }
             else
                 alertBox.Show(this, "Ha ocurrido un problema al realizar tu pedido, reinténtalo o contacta al bar.", "ERROR");
-
-            
         }
 
         private void viewCategorias_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
@@ -159,6 +154,11 @@ namespace LaPosadaClient
             pageControl.SelectedTabPage = pageMain;
             ShopHelper.Cart.Clear();
             SetCartAmount(0);
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            pageControl.SelectedTabPage = pageCategorias;
         }
     }
 }

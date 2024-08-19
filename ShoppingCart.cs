@@ -109,6 +109,7 @@ namespace LaPosadaClient
                         c.RidPedido = PedidoActual.IdPedido;
                         c.Save();
                     }
+                    Clear();
                 }
                 return true;
             }
